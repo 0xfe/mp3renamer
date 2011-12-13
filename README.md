@@ -37,12 +37,9 @@ THE SOFTWARE.
 
 With macports: sudo port install py27-mutagen
 
-## Usage
+## Quickstart
 
-mp3renamer is a commandline tool that can reorganize your audio file
-collection and sort them by artist/album/title. It works particularly well
-for renaming files in an iTunes databases, (e.g., transferring files out of
-your iPod) where files names are obfuscated.
+The commandline syntax for mp3renamer is:
 
     mp3renamer.py [-h] [--output_script FILE] [--rename_command CMD]
                   [--mkdir_command CMD] [--nocolor] [--showmap] [--nostats]
