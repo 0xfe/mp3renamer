@@ -63,16 +63,16 @@ The commandline syntax for mp3renamer is:
 
 The braindead way to use this:
 
-1. Mount your iPod. Enable disk access.
+### 1. Mount your iPod. Enable disk access.
 
-2. Create a target directory to copy the reorganized music to.
+### 2. Create a target directory to copy the reorganized music to.
 
 ```
     $ mkdir MyMusic
     $ cd MyMusic
 ```
 
-3. Generate the copier script from your library.
+### 3. Generate the copier script from your library.
 
 ```
     $ mp3renamer.py /Volumes/iPod
@@ -123,14 +123,14 @@ The braindead way to use this:
      cp '/Volumes/iPod/F06/RSGM.mp3' 'Sting/Blah/4 - History Will Teach Us Nothing'
      cp '/Volumes/iPod/F06/SUGG.mp3' 'Sting/Blah/9 - Rock Steady'
 
-   If you specify --move, files will be moved instead of copied. Alternatively,
-   you can use the --rename_command and mkdir_command flags to provide the exact
+   If you specify `--move`, files will be moved instead of copied. Alternatively,
+   you can use the `--rename_command` and `--mkdir_command` flags to provide the exact
    commands to execute. E.g.
 
      $  mp3renamer.py ~/Music/Copy/ \
           --rename_command 'echo cp' --mkdir_command 'echo mkdir'
 
-4. Run the script in your target directory.
+### 4. Run the script in your target directory.
 
 ```
      $ chmod +x renamer.sh
