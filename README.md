@@ -2,8 +2,11 @@
 
 ## About
 
-mp3renamer is a tool for reorganizing audio file directories. It supports most 
-major audio file formats.
+mp3renamer is a commandline tool that can reorganize your audio file
+collection and sort them by artist/album/title. It supports most audio formats
+(e.g., MP3, M4A, FLAC, etc.) and works particularly well
+for renaming files in an iTunes databases, (e.g., transferring files out of
+your iPod) where files names are obfuscated.
 
 ## License
 
@@ -132,8 +135,10 @@ The braindead way to use this:
 
 4. Run the script in your target directory.
 
+```
      $ chmod +x renamer.sh
      $ ./renamer.sh
+```
 
 ## More information
 
