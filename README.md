@@ -1,13 +1,13 @@
-# mp3renamer
+# mp3renamer - Organize your audio directories
 
 ## About
 
 mp3renamer is a tool for reorganizing audio file directories. It supports most 
 major audio file formats.
 
-Copyright (c) 2011 Mohit Muthanna Cheppudira <mohit@muthanna.com>
-
 ## License
+
+Copyright (c) 2011 Mohit Muthanna Cheppudira <mohit@muthanna.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -67,11 +67,14 @@ The braindead way to use this:
 
 2. Create a target directory to copy the reorganized music to.
 
+```
     $ mkdir MyMusic
     $ cd MyMusic
+```
 
 3. Generate the copier script from your library.
 
+```
     $ mp3renamer.py /Volumes/iPod
 
      Files read: 6223
@@ -107,6 +110,7 @@ The braindead way to use this:
           Wes Montgomery/The Best of Wes/210_GSTH.mp3
 
      Generating shell script: renamer.sh
+```
 
    This command will generate a a shell script which copies all the audio
    files from /Volumes/iPod to a clean hierarchy in the current directory. You
@@ -131,5 +135,8 @@ The braindead way to use this:
      $ chmod +x renamer.sh
      $ ./renamer.sh
 
+## More information
+
 All done. Send your bugs, comments, or criticisms to mohit@muthanna.com.
 
+[the blog][http://0xfe.blogspot.com]
