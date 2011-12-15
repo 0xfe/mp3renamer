@@ -136,10 +136,6 @@ import re
 import sys
 
 from operator import itemgetter
-
-from mutagen.easyid3 import EasyID3
-from mutagen.mp3 import MP3
-from mutagen.m4a import M4A
 from mutagen import File
 
 argparser = argparse.ArgumentParser(
@@ -326,11 +322,20 @@ def process_files(path, stats):
       album = sanitize_path(audio.get('album', ['No Album'])[0])
       title = sanitize_path(audio.get('title', ["%d_%s" % (counter, f)])[0])
 
+      if tracknumber:
+        try:
+          tracknumber = int(re.sub(r'.*?(\d+).*', r'\1', tracknumber))
+        except ValueError, e:
+          tracknumber = None
+          pass
+
+      (_, extension) = os.path.splitext(filename)
+
       if not tracknumber:
-        newname = os.path.join(artist, album, title)
+        newname = os.path.join(artist, album, title + extension)
       else:
-        tracknumber = re.sub(r'.*?(\d+).*', r'\1', tracknumber)
-        newname = os.path.join(artist, album, "%s - %s" % (tracknumber, title))
+        newname = os.path.join(
+            artist, album, "%02d - %s%s" % (tracknumber, title, extension))
 
       if len(missing_tags) > 0:
         pretty_missing_tags = str.join(", ", missing_tags)
@@ -354,7 +359,13 @@ def gen_script_unix(file_map, script_path):
       for track in file_map[artist][album]:
         filename = escape_path(track['filename'])
         newname = track['newname']
-        f.write("%s '%s' '%s'\n" % (rename_cmd, filename, newname))
+        # This is broken out because of a weird issue with unicode file names.
+        f.write(rename_cmd)
+        f.write(" '")
+        f.write(unicode(filename, "utf-8"))
+        f.write("' '")
+        f.write(newname)
+        f.write("'\n")
       f.write("\n")
   f.close()
 
